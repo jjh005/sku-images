@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Imagenes X SKU</title>
+</head>
+<body>
+    <h1>Imagenes por Código</h1>
+    <input type="text" id="inputUrl" placeholder="Ingresa SKU">
+    <button id="btnRedirect">Ver Imagen</button>
+
+    <script>
+        // Obtener elementos del DOM
+        var btnRedirect = document.getElementById('btnRedirect');
+        var inputUrl = document.getElementById('inputUrl');
+
+
+        function redirectToUrl() {
+	    var url = document.getElementById("inputUrl").value
+
+            if (url !== '') {
+		var linkSku = "https://sodimac.scene7.com/is/image/SodimacCL/"+url;
+		console.log(linkSku);
+		window.open(linkSku , "_blank");
+            } else {
+                alert("Por favor, ingrese un SKU válida.");
+            }
+        }
+
+        // Asignar evento al botón
+        btnRedirect.addEventListener('click', redirectToUrl);
+
+        // Asignar evento a la tecla ENTER en el input
+        inputUrl.addEventListener('keydown', function(event) {
+            if (event.keyCode === 13) { // Código de la tecla ENTER
+                event.preventDefault();
+                redirectToUrl();
+            }
+        });
+    </script>
+</body>
+</html>
